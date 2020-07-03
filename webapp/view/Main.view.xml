@@ -1,0 +1,60 @@
+<mvc:View controllerName="io.jansenpenido.bookr.bookr.controller.Main" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:grid="sap.ui.layout.cssgrid" xmlns:tnt="sap.tnt">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page 
+						id="page" 
+						title="{i18n>title}" 
+						titleAlignment="Center"
+						class="sapUiContentPadding">
+
+					<content>
+
+						<f:GridList items="{mBooksAPI>/items}">
+							<f:headerToolbar>
+								<Toolbar>
+									<Title text="{i18n>title.search}"/>
+									<ToolbarSpacer/>
+									<SearchField
+											placeholder="{i18n>searchPlaceholder}"
+											search="onSearch"
+											width="75%"/>
+								</Toolbar>
+							</f:headerToolbar>
+							<f:customLayout>
+								<grid:GridBasicLayout
+										gridTemplateColumns="repeat(auto-fit, minmax(21rem, 1fr))"
+										gridGap="0.5rem"/>
+							</f:customLayout>
+							<f:GridListItem>
+								<HBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Image src="{mBooksAPI>volumeInfo/imageLinks/thumbnail}" width="5rem"/>
+									</VBox>
+									<VBox class="sapUiSmallMargin">
+										<Title 
+												text="{mBooksAPI>volumeInfo/title}" 
+												wrapping="true" />
+										<Label 
+												text="{mBooksAPI>volumeInfo/authors}" 
+												wrapping="true" 
+												class="sapUiTinyMarginBottom"/>
+										<Link
+												href="{mBooksAPI>volumeInfo/infoLink}"
+												target="_blank"
+												text="{i18n>readMore}"/>
+									</VBox>
+								</HBox>
+							</f:GridListItem>
+						</f:GridList>
+
+					</content>
+					<footer>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
