@@ -1,4 +1,4 @@
-# UI5 PWA To-do List
+# Bookr - UI5 Book Finder
 
 ### [Live Demo](https://jansenpenido.github.io/ui5-bookr/webapp/index.html)
 
