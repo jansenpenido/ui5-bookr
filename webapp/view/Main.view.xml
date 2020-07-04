@@ -12,7 +12,7 @@
 
 					<content>
 
-						<f:GridList items="{mBooksAPI>/items}">
+						<f:GridList items="{mBooksSearch>/items}">
 							<f:headerToolbar>
 								<Toolbar>
 									<Title text="{i18n>title.search}"/>
@@ -31,18 +31,48 @@
 							<f:GridListItem>
 								<HBox height="100%">
 									<VBox class="sapUiSmallMargin">
-										<Image src="{mBooksAPI>volumeInfo/imageLinks/thumbnail}" width="5rem"/>
+										<Image src="{mBooksSearch>volumeInfo/imageLinks/thumbnail}" width="5rem"/>
 									</VBox>
 									<VBox class="sapUiSmallMargin">
 										<Title 
-												text="{mBooksAPI>volumeInfo/title}" 
+												text="{mBooksSearch>volumeInfo/title}" 
 												wrapping="true" />
 										<Label 
-												text="{mBooksAPI>volumeInfo/authors}" 
+												text="{mBooksSearch>volumeInfo/authors}" 
 												wrapping="true" 
 												class="sapUiTinyMarginBottom"/>
 										<Link
-												href="{mBooksAPI>volumeInfo/infoLink}"
+												href="{mBooksSearch>volumeInfo/infoLink}"
+												target="_blank"
+												text="{i18n>readMore}"/>
+									</VBox>
+								</HBox>
+							</f:GridListItem>
+						</f:GridList>
+
+						<f:GridList 
+								headerText="Best Sellers"
+								items="{mBooksBestSellers>/items}">
+							<f:customLayout>
+								<grid:GridBasicLayout
+										gridTemplateColumns="repeat(auto-fit, minmax(21rem, 1fr))"
+										gridGap="0.5rem"/>
+							</f:customLayout>
+							<f:GridListItem>
+								<HBox height="100%">
+									<VBox class="sapUiSmallMargin">
+										<Image src="{mBooksBestSellers>volumeInfo/imageLinks/thumbnail}" width="5rem"/>
+									</VBox>
+									<VBox class="sapUiSmallMargin">
+										<Title 
+												text="{mBooksBestSellers>volumeInfo/title}" 
+												wrapping="true" />
+										<Label 
+												text="{mBooksBestSellers>volumeInfo/authors}" 
+												wrapping="true" 
+												class="sapUiTinyMarginBottom"/>
+										<Link
+												href="{mBooksBestSellers>volumeInfo/infoLink}"
 												target="_blank"
 												text="{i18n>readMore}"/>
 									</VBox>
